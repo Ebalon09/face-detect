@@ -1,13 +1,14 @@
 import React from "react";
-import DetectionBox from "./DetectionBox";
-import VideoElement from '../VideoElement/VideoElement'
+//import VideoElement from '../VideoElement/VideoElement'
+import VideoElement from './VideoElement'
+import { MODEL_PATH, REFRESH_RATIO } from "../../Constants/Constants";
 
-const VideoDisplay = ({ DetectionBoxCoordinates }) => {
+const VideoDisplay = () => {
 
   return (
     <div className="center">
       <div className="displayWrapper">
-        <VideoElement />
+        <VideoElement modelPath={MODEL_PATH} boxRefreshRatio={REFRESH_RATIO} />
       </div>
     </div>
   );

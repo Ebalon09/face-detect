@@ -22,13 +22,16 @@ const VideoElement = ({modelPath, boxRefreshRatio}) => {
                     new faceApi.TinyFaceDetectorOptions()
                 ).withFaceLandmarks().withFaceExpressions().withAgeAndGender();
 
-                drawBox(canvas, faceApi.resizeResults(detections, displaySize));
+                drawBox(canvas, faceApi.resizeResults(detections, displaySize), faceApi);
             }, boxRefreshRatio)
         })
     }
 
     useEffect(() => {
-        loadModelsAndStart(modelPath, faceApi, startVideo);
+        loadModelsAndStart(modelPath, faceApi).then(() => {
+            console.warn("Successfully loaded models. Starting video...");
+            startVideo();
+        });
     }, [])
 
 
