@@ -16,12 +16,13 @@ const VideoElement = ({modelPath, boxRefreshRatio}) => {
             faceApi.matchDimensions(canvas, displaySize);
 
             setInterval(async () => {
-                clearApiCanvas(canvas)
+                canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+
                 const detections = await faceApi.detectAllFaces(
                     video,
                     new faceApi.TinyFaceDetectorOptions()
                 ).withFaceLandmarks().withFaceExpressions().withAgeAndGender();
-
+                
                 drawBox(canvas, faceApi.resizeResults(detections, displaySize), faceApi);
             }, boxRefreshRatio)
         })
