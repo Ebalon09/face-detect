@@ -1,0 +1,52 @@
+.App {
+    text-align: center;
+}
+
+canvas {
+    position: absolute;
+}
+
+.text-white {
+    color: white;
+}
+
+.bg-primary  {
+    background-color: black;
+}
+
+.button {
+    line-height: 2;
+    width: 200px;
+    text-align: center;
+}
+
+.input {
+    width: 100%;
+}
+
+.mainWrapper {
+    .center {
+        display: flex;
+        justify-content: center;
+    }
+        
+    .form {
+        width: 700px;
+        background-color: slategray;
+        background-size: 100px 100px, 100px 100px, 50px 50px, 50px 50px;
+    }
+        
+    .bounding-box {
+        position: absolute;
+        box-shadow: 0 0 0 3px #fff inset;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }   
+
+    .submitButton {
+        &:hover {
+            background: lighten(black, 20%);
+        }
+    }
+}
